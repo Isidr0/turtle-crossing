@@ -12,16 +12,18 @@ class Player(Turtle):
         self.shape("turtle")
         self.color("black")
         self.setheading(90)
+        self.game_speed = 0.1
         self.reset_player()
 
     def move_up(self):
-        new_y = self.ycor() + 10
-        self.setposition(self.xcor(), new_y)
-
-    def move_down(self):
-        new_y = self.ycor() - 10
+        new_y = self.ycor() + MOVE_DISTANCE
         self.setposition(self.xcor(), new_y)
 
     def reset_player(self):
         self.penup()
         self.goto(STARTING_POSITION)
+
+    def increase_speed(self):
+        if self.ycor() > FINISH_LINE_Y:
+            self.game_speed *= 0.9
+            self.reset_player()

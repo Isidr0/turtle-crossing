@@ -19,10 +19,11 @@ class CarManager(Turtle):
         self.goto(self.starting_pos)
         self.new_x = 0
 
+
     def move_car(self):
         self.new_x = self.xcor() - STARTING_MOVE_DISTANCE
         self.setposition(self.new_x, self.ycor())
 
-    def speed_up_car(self):
+    def increase_speed(self):
         self.new_x = self.xcor() - MOVE_INCREMENT
         self.setposition(self.new_x, self.ycor())
